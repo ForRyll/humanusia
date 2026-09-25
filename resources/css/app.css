@@ -1,0 +1,437 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================
+   MARQUEE / LOGO SLIDER ANIMATION
+   ========================================== */
+
+.marquee-wrapper {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 2rem;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.marquee {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2rem;
+  align-items: center;
+  min-width: 100%;
+}
+
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2.5rem;
+  min-width: 100%;
+}
+
+.marquee-group img {
+  height: 3rem; /* Sesuaikan tinggi logo */
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.marquee-group img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* KUNCI ANIMASI GESER */
+.marquee-right {
+  animation: scroll-right 30s linear infinite;
+}
+
+.marquee-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+/* Berhenti sejenak saat kursor diarahkan ke logo */
+.marquee-wrapper:hover .marquee {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* =========================================================
+   OUR CLIENTS MARQUEE STYLE (FIXED GAP & ALIGNMENT)
+========================================================= */
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+}
+
+.marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+}
+
+.marquee {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+}
+
+.marquee-group {
+    display: flex;
+    align-items: center;
+    gap: 55px; /* Diperkecil dari 80px agar tidak terlalu jauh */
+    padding-right: 40px;
+    flex-shrink: 0;
+}
+
+.marquee-group img {
+    height: 55px; /* Ukuran disesuaikan agar rapi */
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.marquee-group img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.marquee-right {
+    animation: continuousRight 25s linear infinite;
+}
+
+.marquee-left {
+    animation: continuousLeft 25s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee {
+    animation-play-state: paused;
+}
+
+@keyframes continuousRight {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes continuousLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* =========================================================
+   TESTIMONIAL MARQUEE STYLE
+========================================================= */
+
+/* WRAPPER */
+.testimonial-marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* FADE KIRI & KANAN */
+.testimonial-marquee-wrapper::before,
+.testimonial-marquee-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.testimonial-marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+}
+
+.testimonial-marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+}
+
+/* MARQUEE */
+.testimonial-marquee {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+}
+
+/* GROUP */
+.testimonial-group {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    padding-right: 14px;
+    flex-shrink: 0;
+}
+
+/* CARD */
+.testimonial-card {
+    width: 520px;
+    min-height: 160px;
+    background: #C90000;
+    color: white;
+    border-radius: 8px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+/* TESTIMONIAL TEXT */
+.testimonial-text {
+    font-size: 13px;
+    line-height: 1.45;
+    font-weight: 400;
+    margin: 0 0 16px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* USER */
+.testimonial-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.testimonial-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.testimonial-name {
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin: 0 0 3px 0;
+}
+
+.testimonial-role {
+    font-size: 9px;
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* ANIMATION */
+.testimonial-left {
+    animation: testimonialMoveLeft 35s linear infinite;
+}
+
+.testimonial-right {
+    animation: testimonialMoveRight 35s linear infinite;
+}
+
+@keyframes testimonialMoveLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes testimonialMoveRight {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* HOVER = PAUSE */
+.testimonial-marquee-wrapper:hover .testimonial-marquee {
+    animation-play-state: paused;
+}
+
+/* TABLET RESPONSIVE */
+@media (max-width: 768px) {
+    .testimonial-group {
+        gap: 10px;
+        padding-right: 10px;
+    }
+
+    .testimonial-card {
+        width: 390px;
+        min-height: 165px;
+        padding: 18px 20px;
+        border-radius: 8px;
+    }
+
+    .testimonial-text {
+        font-size: 12px;
+        line-height: 1.45;
+        -webkit-line-clamp: 4;
+    }
+
+    .testimonial-avatar {
+        width: 34px;
+        height: 34px;
+    }
+
+    .testimonial-name {
+        font-size: 11px;
+    }
+
+    .testimonial-role {
+        font-size: 8px;
+    }
+
+    .testimonial-marquee-wrapper::before,
+    .testimonial-marquee-wrapper::after {
+        width: 50px;
+    }
+
+    .testimonial-left,
+    .testimonial-right {
+        animation-duration: 30s;
+    }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+    .testimonial-card {
+        width: 330px;
+        min-height: 170px;
+        padding: 17px 18px;
+    }
+
+    .testimonial-text {
+        font-size: 11px;
+        line-height: 1.45;
+        -webkit-line-clamp: 4;
+    }
+
+    .testimonial-group {
+        gap: 8px;
+        padding-right: 8px;
+    }
+
+    .testimonial-left,
+    .testimonial-right {
+        animation-duration: 28s;
+    }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    .testimonial-marquee {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* =========================================================
+   PRICING CARD HOVER & BUTTON ANIMATION
+========================================================= */
+
+.pricing-card {
+    cursor: pointer;
+    transform-origin: center;
+}
+
+.pricing-card .pricing-button {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.pricing-card .pricing-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(-110%);
+    transition: transform 0.4s ease;
+    z-index: -1;
+}
+
+.pricing-card:hover .pricing-button::before {
+    transform: translateX(110%);
+}
+
+@media (max-width: 1023px) {
+    .pricing-card:hover {
+        transform: translateY(-6px) scale(1.01);
+    }
+}
+
+@media (max-width: 640px) {
+    .pricing-card:hover {
+        transform: translateY(-4px);
+    }
+}
