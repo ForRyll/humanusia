@@ -1,0 +1,684 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background: #ffffff;
+    color: #000000;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   OUR CLIENTS
+========================================================= */
+
+.our-clients-section {
+    padding: 64px 0;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.our-clients-header {
+    max-width: 1280px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.our-clients-header h4 {
+    margin: 0;
+    color: #000000;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 36px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   MARQUEE CONTAINER
+========================================================= */
+
+.clients-marquee-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+/* =========================================================
+   MARQUEE WRAPPER
+========================================================= */
+
+.marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+}
+
+
+/* =========================================================
+   FADE KIRI & KANAN
+========================================================= */
+
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+
+    width: 80px;
+    height: 100%;
+
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marquee-wrapper::before {
+    left: 0;
+
+    background: linear-gradient(
+        to right,
+        #ffffff,
+        transparent
+    );
+}
+
+.marquee-wrapper::after {
+    right: 0;
+
+    background: linear-gradient(
+        to left,
+        #ffffff,
+        transparent
+    );
+}
+
+
+/* =========================================================
+   MARQUEE TRACK
+========================================================= */
+
+.marquee {
+    display: flex;
+
+    width: max-content;
+
+    will-change: transform;
+}
+
+
+/* =========================================================
+   LOGO GROUP
+========================================================= */
+
+.marquee-group {
+    display: flex;
+
+    align-items: center;
+
+    gap: 80px;
+
+    padding-right: 80px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.marquee-group img {
+    display: block;
+
+    height: 88px;
+
+    width: auto;
+
+    max-width: 220px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+
+    opacity: 1;    
+
+    transition:
+        filter 0.3s ease,
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =========================================================
+   LOGO HOVER
+========================================================= */
+
+.marquee-group img:hover {
+    filter: grayscale(0%);
+
+    opacity: 1;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+.marquee-right {
+    animation: continuousRight 20s linear infinite;
+}
+
+.marquee-left {
+    animation: continuousLeft 20s linear infinite;
+}
+
+
+/* =========================================================
+   PAUSE ON HOVER
+========================================================= */
+
+.marquee-wrapper:hover .marquee {
+    animation-play-state: paused;
+}
+
+
+/* =========================================================
+   MOVE RIGHT
+========================================================= */
+
+@keyframes continuousRight {
+
+    0% {
+        transform: translateX(-33.3333%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOVE LEFT
+========================================================= */
+
+@keyframes continuousLeft {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.3333%);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .our-clients-section {
+        padding: 48px 0;
+    }
+
+    .our-clients-header {
+        margin-bottom: 36px;
+        padding: 0 20px;
+    }
+
+    .our-clients-header h4 {
+        font-size: 26px;
+    }
+
+    .clients-marquee-container {
+        gap: 28px;
+    }
+
+    .marquee-group {
+        gap: 50px;
+        padding-right: 50px;
+    }
+
+    .marquee-group img {
+        height: 55px;
+        max-width: 140px;
+    }
+
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+        width: 60px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .marquee-right,
+    .marquee-left {
+        animation: none;
+    }
+
+}
+
+
+/* =========================================================
+   TESTIMONIAL / WHAT OUR CLIENTS SAY
+========================================================= */
+
+
+/* Wrapper */
+
+.testimonial-marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* Fade kiri kanan */
+
+.testimonial-marquee-wrapper::before,
+.testimonial-marquee-wrapper::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    width: 100px;
+    height: 100%;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.testimonial-marquee-wrapper::before {
+    left: 0;
+
+    background: linear-gradient(
+        to right,
+        white,
+        transparent
+    );
+}
+
+.testimonial-marquee-wrapper::after {
+    right: 0;
+
+    background: linear-gradient(
+        to left,
+        white,
+        transparent
+    );
+}
+
+
+/* Track */
+
+.testimonial-marquee {
+    display: flex;
+
+    width: max-content;
+
+    will-change: transform;
+}
+
+
+/* Group */
+
+.testimonial-group {
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 14px;
+
+    padding-right: 14px;
+
+    flex-shrink: 0;
+}
+
+
+/* Card */
+
+.testimonial-card {
+    width: 620px;
+
+    min-height: 260px;
+
+    background: #C90000;
+
+    color: white;
+
+    border-radius: 8px;
+
+    padding: 28px 32px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    flex-shrink: 0;
+}
+
+
+/* Text */
+
+.testimonial-text {
+    font-size: 14.5px;
+
+    line-height: 1.45;
+
+    font-weight: 400;
+
+    margin: 0 0 16px 0;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 5;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* User */
+
+.testimonial-user {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* Avatar */
+
+.testimonial-avatar {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+
+/* Name */
+
+.testimonial-name {
+    font-size: 12px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    margin: 0 0 3px 0;
+}
+
+
+/* Role */
+
+.testimonial-role {
+    font-size: 9px;
+
+    line-height: 1.2;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   TESTIMONIAL ANIMATION
+========================================================= */
+
+.testimonial-left {
+    animation: testimonialMoveLeft 35s linear infinite;
+}
+
+.testimonial-right {
+    animation: testimonialMoveRight 35s linear infinite;
+}
+
+
+@keyframes testimonialMoveLeft {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+@keyframes testimonialMoveRight {
+
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* Pause */
+
+.testimonial-marquee-wrapper:hover .testimonial-marquee {
+    animation-play-state: paused;
+}
+
+
+/* =========================================================
+   PRICING CARD HOVER
+========================================================= */
+
+.pricing-card {
+    cursor: pointer;
+
+    transform-origin: center;
+}
+
+
+.pricing-card .pricing-button {
+    position: relative;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+
+.pricing-card .pricing-button::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    transform: translateX(-110%);
+
+    transition: transform 0.4s ease;
+
+    z-index: -1;
+}
+
+
+.pricing-card:hover .pricing-button::before {
+    transform: translateX(110%);
+}
+
+
+/* =========================================================
+   RESPONSIVE TESTIMONIAL
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .testimonial-group {
+        gap: 10px;
+
+        padding-right: 10px;
+    }
+
+    .testimonial-card {
+        width: 390px;
+
+        min-height: 165px;
+
+        padding: 18px 20px;
+
+        border-radius: 8px;
+    }
+
+    .testimonial-text {
+        font-size: 12px;
+
+        line-height: 1.45;
+
+        -webkit-line-clamp: 4;
+    }
+
+    .testimonial-avatar {
+        width: 34px;
+        height: 34px;
+    }
+
+    .testimonial-name {
+        font-size: 11px;
+    }
+
+    .testimonial-role {
+        font-size: 8px;
+    }
+
+    .testimonial-marquee-wrapper::before,
+    .testimonial-marquee-wrapper::after {
+        width: 50px;
+    }
+
+    .testimonial-left,
+    .testimonial-right {
+        animation-duration: 30s;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .testimonial-card {
+        width: 330px;
+
+        min-height: 170px;
+
+        padding: 17px 18px;
+    }
+
+    .testimonial-text {
+        font-size: 11px;
+
+        line-height: 1.45;
+
+        -webkit-line-clamp: 4;
+    }
+
+    .testimonial-group {
+        gap: 8px;
+
+        padding-right: 8px;
+    }
+
+    .testimonial-left,
+    .testimonial-right {
+        animation-duration: 28s;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}
