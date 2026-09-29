@@ -103,7 +103,7 @@ export default function Hero() {
                                 py-3
                                 min-w-[105px]
                                 rounded-[5px]
-                                bg-[#FF4646]
+                                bg-[#ff4545]
                                 hover:bg-[#B70000]
                                 text-white
                                 text-[11px]

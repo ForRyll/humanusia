@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -17,17 +16,13 @@ export default function Login() {
 
     return (
         <div className="min-h-screen bg-white font-['Inter_Tight',sans-serif] overflow-hidden">
-            {/* =====================================================
-                NAVBAR
-            ====================================================== */}
-            <Navbar />
 
             {/* =====================================================
                 LOGIN SECTION
             ====================================================== */}
             <main className="relative min-h-screen pt-20">
 
-                
+
                    {/* PRODUCT IMAGES */}
 <div className="absolute inset-0 z-[9999] pointer-events-none">
 
@@ -40,7 +35,7 @@ export default function Login() {
             w-[330px]
             lg:w-[390px]
             xl:w-[430px]
-            top-[9%]
+            top-[12%]
             left-[31%]
             -translate-x-1/2
             rotate-[0deg]
@@ -61,7 +56,7 @@ export default function Login() {
             w-[330px]
             lg:w-[390px]
             xl:w-[430px]
-            top-[29%]
+            top-[32%]
             left-[31%]
             -translate-x-1/2
             rotate-[3deg]
@@ -85,7 +80,7 @@ export default function Login() {
             top-[55%]
             left-[31%]
             -translate-x-1/2
-            rotate-[-4deg]
+            rotate-[-1deg]
             z-[52]
             drop-shadow-[0_15px_25px_rgba(0,0,0,0.25)]
             transition-transform

@@ -171,7 +171,7 @@ img {
 
     flex-shrink: 0;
 
-    opacity: 1;    
+    opacity: 1;
 
     transition:
         filter 0.3s ease,
@@ -681,4 +681,13 @@ img {
         scroll-behavior: auto !important;
     }
 
+}
+
+/* Benefit hover hanya aktif pada device yang benar-benar
+   mempunyai mouse / trackpad */
+@media (hover: hover) and (pointer: fine) {
+    .benefit-card:hover {
+        transform: scale(1.025);
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.16);
+    }
 }
